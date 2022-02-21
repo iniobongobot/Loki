@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Loki Age</title>
+	<title>Loki's Age</title>
 </head>
 <body>
 	<main>
@@ -23,15 +23,16 @@ var x = setInterval(function() {
 var now = new Date().getTime(); 
 var t =  now - birth; 
 var year = Math.floor(t/(365*1000 * 60 * 60 * 24))
-var days = -((365*year) - Math.floor(t / (1000 * 60 * 60 * 24))); 
+var month = Math.abs((12*year) -Math.floor(t/(30.42*24*60*60*1000)));
+var days = Math.abs(Math.floor((30.42*month)-(-((365*year) - Math.floor(t / (1000 * 60 * 60 * 24)))))); 
 var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
 var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
 var seconds = Math.floor((t % (1000 * 60)) / 1000); 
-document.getElementById("demo").innerHTML =year + "years "+ days + "Days "  
-+ hours + "Hours " + minutes + "Minutes " + seconds + "Seconds years old"; 
+document.getElementById("demo").innerHTML =year + " Years <br>"+month +" Months <br>" + days + " Days <br>"  
++ hours + " Hours <br>" + minutes + " Minutes <br>" + seconds + " Seconds years old"; 
     if (t < 0) { 
         clearInterval(x); 
-        document.getElementById("demo").innerHTML = "It is Time!! \n To Nut!!" ; 
+        document.getElementById("demo").innerHTML = "" ; 
     } 
 }, 1000);
 
